@@ -7,7 +7,7 @@ const app=express();
 
 var loginStatus = false;
 var creds ="";
-const port=9000;
+
 
 var corsOptions={
   origin:"https://vast-oasis-03078.herokuapp.com"
@@ -170,8 +170,8 @@ app.post("/loginStatusUpdate",function(req,res){
   loginStatus=req.body.status;
   console.log(loginStatus);
 });
-
-app.listen(port,function(){
+let port=process.env.PORT;
+app.listen(port||9000 ,function(){
     console.log(`im listening to the port ${port}`);
 })
 
